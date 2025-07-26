@@ -67,7 +67,7 @@ html {
   flex-wrap: wrap;
 }
 .nav {
-  max-width: 1230px;
+  max-width: 1200px;
   width: 100%;
   height: 100%;
   padding: 25px 10px;
@@ -75,6 +75,9 @@ html {
   align-items: center;
   justify-content: space-between;
   border-bottom: 1px solid #f7f7e6;
+}
+.mobile-nav {
+  display: none;
 }
 .navlinks {
   display: flex;
@@ -86,7 +89,18 @@ html {
     font-size: 14px;
     font-weight: 500;
     color:#f7f7e6;
-    transition: color 0.15s ease;
+    transition: color 0.20s ease;
+    cursor: pointer;
+}
+.contact:last-child > a {
+  border: 1px solid #f7f7e6;
+  background-color: #f7f7e6;
+  color: #000;
+  padding: 10px 18px;
+}
+.contact:last-child > a:hover {
+  background-color: transparent;
+  color: #f7f7e6;
 }
 .navlink > a:hover {
   color:#2c5461;
@@ -119,7 +133,7 @@ html {
 
 /* HOMEPAGE */
 #home {
-    height: 100vh;
+    height: 98vh;
     display: flex;
     flex-direction: column;
     gap: 20px;
@@ -129,7 +143,7 @@ html {
     text-align: center;
 }
  #home h1 {
-    font-size: 2.8rem;
+    font-size: clamp(2rem, 5.5vw, 3rem);
     font-weight: 900;
     font-family: "Lexend Tera", "Montserrat, sans-serif";
   }
@@ -141,9 +155,64 @@ html {
     overflow: hidden;
     animation: blinkCursor 0.8s infinite;
   }
+  #arrow {
+    position: absolute;
+    bottom: 50px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 3rem;
+    color: #fff;
+  }
 
   @keyframes blinkCursor {
     0% { border-color: #f7f7e6; }
     50% { border-color: transparent; }
     100% { border-color: #f7f7e6; }
+  }
+  @media (max-width: 998px) {
+  .nav {
+    justify-content: flex-end;
+    padding-right: 20px;
+  }
+  .mobile-nav {
+    display: flex;
+    list-style-type: none;
+    background-color: #7c99a3;
+    gap:40px;
+    padding: 25px;
+    padding-top: 50px;
+    flex-direction: column;
+    position: absolute;
+    top:70px;
+    left: -400px;
+    width: 100%;
+    height: 100vh;
+    z-index: -1;
+    transition: all 0.25s ease;
+    box-shadow: rgba(99, 99, 99, 0.2) 4px 0px 0px 2px;
+  }
+  .mobile-nav > .navlink a {
+    font-size: 22px;
+  }
+  .hamburger {
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    cursor: pointer;
+  }
+
+  .hamburger span {
+    width: 28px;
+    height: 3px;
+    background-color: #f7f7e6;
+    border-radius: 2px;
+    transition: all 0.3s ease;
+  }
+  .mobile-nav.active {
+    left: 0;
+  }
+    .navlinks,
+    .socials {
+      display: none;
+    }
   }
