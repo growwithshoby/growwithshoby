@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-    const words = ["SEO", "SEM", "Web", "Design", "Social Media"];
+    const words = ["SEO", "SEM", "Web", "Design"];
     const el = document.getElementById("dynamic-word");
 
     let wordIndex = 0;
