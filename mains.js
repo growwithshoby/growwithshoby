@@ -37,6 +37,20 @@ document.addEventListener("DOMContentLoaded", () => {
         }
       }
     }
+    const tabButtons = document.querySelectorAll('.tab-btn');
+    const tabContents = document.querySelectorAll('.tab-content');
+
+    tabButtons.forEach(btn => {
+      btn.addEventListener('mouseover', () => {
+        // Remove active from all
+        tabButtons.forEach(b => b.classList.remove('active'));
+        tabContents.forEach(tab => tab.classList.remove('active'));
+
+        // Add active to current
+        btn.classList.add('active');
+        document.getElementById(btn.dataset.tab).classList.add('active');
+      });
+    });
 
     type();
   });
